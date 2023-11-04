@@ -220,7 +220,6 @@ if(BUILD_LIB)
 		src/nyx/python/new_bindings_py.cpp
 		src/nyx/python/nested_roi_py.cpp
 		src/nyx/nested_roi.cpp
-		src/nyx/image_loader1x.cpp
 	)
 endif()
 
