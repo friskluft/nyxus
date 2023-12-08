@@ -35,7 +35,45 @@ public:
 		GLRLM_SRLGLE,	// Short Run Low Gray Level Emphasis 
 		GLRLM_SRHGLE,	// Short Run High Gray Level Emphasis 
 		GLRLM_LRLGLE,	// Long Run Low Gray Level Emphasis 
-		GLRLM_LRHGLE	// Long Run High Gray Level Emphasis 
+		GLRLM_LRHGLE,	// Long Run High Gray Level Emphasis 
+		// averaged features:
+		GLRLM_SRE_AVE,
+		GLRLM_LRE_AVE,
+		GLRLM_GLN_AVE,
+		GLRLM_GLNN_AVE,
+		GLRLM_RLN_AVE,
+		GLRLM_RLNN_AVE,
+		GLRLM_RP_AVE,
+		GLRLM_GLV_AVE,
+		GLRLM_RV_AVE,
+		GLRLM_RE_AVE,
+		GLRLM_LGLRE_AVE,
+		GLRLM_HGLRE_AVE,
+		GLRLM_SRLGLE_AVE,
+		GLRLM_SRHGLE_AVE,
+		GLRLM_LRLGLE_AVE,
+		GLRLM_LRHGLE_AVE
+	};
+
+	// Features implemented by this class that do not require vector-like angled output. Instead, they are output as a single values
+	const constexpr static std::initializer_list<Nyxus::AvailableFeatures> nonAngledFeatures =
+	{
+		GLRLM_SRE_AVE,
+		GLRLM_LRE_AVE,
+		GLRLM_GLN_AVE,
+		GLRLM_GLNN_AVE,
+		GLRLM_RLN_AVE,
+		GLRLM_RLNN_AVE,
+		GLRLM_RP_AVE,
+		GLRLM_GLV_AVE,
+		GLRLM_RV_AVE,
+		GLRLM_RE_AVE,
+		GLRLM_LGLRE_AVE,
+		GLRLM_HGLRE_AVE,
+		GLRLM_SRLGLE_AVE,
+		GLRLM_SRHGLE_AVE,
+		GLRLM_LRLGLE_AVE,
+		GLRLM_LRHGLE_AVE
 	};
 
 	GLRLMFeature();
@@ -91,6 +129,7 @@ public:
 	constexpr static int rotAngles [] = {0, 45, 90, 135};
 
 private:
+
 	std::vector<double> angled_SRE, 
 		angled_LRE,
 		angled_GLN,
@@ -107,6 +146,8 @@ private:
 		angled_SRHGLE,
 		angled_LRLGLE,
 		angled_LRHGLE;
+
+	double calc_ave (const std::vector<double>& angled_feature_vals);
 
 	bool bad_roi_data = false;	// used to prevent calculation of degenerate ROIs
 	std::vector<int> angles_Ng;	// number of discrete intensity values in the image

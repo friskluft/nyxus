@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <iomanip>
+#include <numeric>
 #include <sstream>
 #include <unordered_set>
 #include "glrlm.h"
@@ -551,6 +552,24 @@ void GLRLMFeature::save_value(std::vector<std::vector<double>>& fvals)
 	fvals[GLRLM_SRHGLE] = angled_SRHGLE;
 	fvals[GLRLM_LRLGLE] = angled_LRLGLE;
 	fvals[GLRLM_LRHGLE] = angled_LRHGLE;
+
+	// -- averages --
+	fvals[GLRLM_SRE_AVE][0] = calc_ave (angled_SRE);
+	fvals[GLRLM_LRE_AVE][0] = calc_ave (angled_LRE);
+	fvals[GLRLM_GLN_AVE][0] = calc_ave (angled_GLN);
+	fvals[GLRLM_GLNN_AVE][0] = calc_ave (angled_GLNN);
+	fvals[GLRLM_RLN_AVE][0] = calc_ave (angled_RLN);
+	fvals[GLRLM_RLNN_AVE][0] = calc_ave (angled_RLNN);
+	fvals[GLRLM_RP_AVE][0] = calc_ave (angled_RP);
+	fvals[GLRLM_GLV_AVE][0] = calc_ave (angled_GLV);
+	fvals[GLRLM_RV_AVE][0] = calc_ave (angled_RV);
+	fvals[GLRLM_RE_AVE][0] = calc_ave (angled_RE);
+	fvals[GLRLM_LGLRE_AVE][0] = calc_ave (angled_LGLRE);
+	fvals[GLRLM_HGLRE_AVE][0] = calc_ave (angled_HGLRE);
+	fvals[GLRLM_SRLGLE_AVE][0] = calc_ave (angled_SRLGLE);
+	fvals[GLRLM_SRHGLE_AVE][0] = calc_ave (angled_SRHGLE);
+	fvals[GLRLM_LRLGLE_AVE][0] = calc_ave (angled_LRLGLE);
+	fvals[GLRLM_LRHGLE_AVE][0] = calc_ave (angled_LRHGLE);
 }
 
 
@@ -1213,3 +1232,14 @@ void GLRLMFeature::parallel_process_1_batch (size_t start, size_t end, std::vect
 	}
 }
 
+// 'afv' is angled feature values
+double GLRLMFeature::calc_ave (const std::vector<double> & afv)
+{
+	if (afv.empty())
+		return 0;
+
+	double n = static_cast<double> (afv.size()),
+		ave = std::reduce(afv.begin(), afv.end()) / n;
+
+	return ave;
+}

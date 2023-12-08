@@ -66,32 +66,26 @@ void GLCMFeature::copyfvals (AngledFeatures& dst, const AngledFeatures& src)
 void GLCMFeature::save_value(std::vector<std::vector<double>>& fvals)
 {
 	copyfvals (fvals[GLCM_ASM], fvals_ASM);
+
 	copyfvals (fvals[GLCM_ACOR], fvals_acor);
+	copyfvals (fvals[GLCM_ACOR], fvals_acor);
+
 	copyfvals (fvals[GLCM_CLUPROM], fvals_cluprom);
 	copyfvals (fvals[GLCM_CLUSHADE], fvals_clushade);
 	copyfvals (fvals[GLCM_CLUTEND], fvals_clutend);
 	copyfvals (fvals[GLCM_CONTRAST], fvals_contrast);
-	fvals[GLCM_CONTRAST_AVE][0] = calc_ave (fvals_contrast);
 	copyfvals (fvals[GLCM_CORRELATION], fvals_correlation);
-	fvals[GLCM_CORRELATION_AVE][0] = calc_ave (fvals_correlation);
 	copyfvals (fvals[GLCM_DIFAVE], fvals_diff_avg);
-	fvals[GLCM_DIFAVE_AVE][0] = calc_ave (fvals_diff_avg);
 	copyfvals (fvals[GLCM_DIFVAR], fvals_diff_var);
-	fvals[GLCM_DIFVAR_AVE][0] = calc_ave (fvals_diff_var);
 	copyfvals (fvals[GLCM_DIFENTRO], fvals_diff_entropy);
-	fvals[GLCM_DIFENTRO_AVE][0] = calc_ave (fvals_diff_entropy);
 	copyfvals (fvals[GLCM_DIS], fvals_dis);
 	copyfvals (fvals[GLCM_ENERGY], fvals_energy);
-	fvals[GLCM_ENERGY_AVE][0] = calc_ave (fvals_energy);
 	copyfvals (fvals[GLCM_ENTROPY], fvals_entropy);
-	fvals[GLCM_ENTROPY_AVE][0] = calc_ave (fvals_entropy);
 	copyfvals (fvals[GLCM_HOM1], fvals_homo);
-	fvals[GLCM_HOM1_AVE][0] = calc_ave (fvals_homo);
 	copyfvals (fvals[GLCM_HOM2], fvals_hom2);
 	copyfvals (fvals[GLCM_ID], fvals_id);
 	copyfvals (fvals[GLCM_IDN], fvals_idn);
 	copyfvals (fvals[GLCM_IDM], fvals_IDM);
-	fvals[GLCM_IDM_AVE][0] = calc_ave (fvals_IDM);
 	copyfvals (fvals[GLCM_IDMN], fvals_idmn);
 	copyfvals (fvals[GLCM_INFOMEAS1], fvals_meas_corr1);
 	copyfvals (fvals[GLCM_INFOMEAS2], fvals_meas_corr2);
@@ -101,12 +95,38 @@ void GLCMFeature::save_value(std::vector<std::vector<double>>& fvals)
 	copyfvals (fvals[GLCM_JMAX], fvals_jmax);
 	copyfvals (fvals[GLCM_JVAR], fvals_jvar);
 	copyfvals (fvals[GLCM_SUMAVERAGE], fvals_sum_avg);
-	fvals[GLCM_SUMAVERAGE_AVE][0] = calc_ave (fvals_sum_avg);
 	copyfvals (fvals[GLCM_SUMVARIANCE], fvals_sum_var);
-	fvals[GLCM_SUMVARIANCE_AVE][0] = calc_ave (fvals_sum_var);
 	copyfvals (fvals[GLCM_SUMENTROPY], fvals_sum_entropy);
-	fvals[GLCM_SUMENTROPY_AVE][0] = calc_ave (fvals_sum_entropy);
 	copyfvals (fvals[GLCM_VARIANCE], fvals_variance);
+	fvals[GLCM_ASM_AVE][0] = calc_ave(fvals_ASM);
+	fvals[GLCM_ACOR_AVE][0] = calc_ave(fvals_acor);
+	fvals[GLCM_CLUPROM_AVE][0] = calc_ave(fvals_cluprom);
+	fvals[GLCM_CLUSHADE_AVE][0] = calc_ave(fvals_clushade);
+	fvals[GLCM_CLUTEND_AVE][0] = calc_ave(fvals_clutend);
+	fvals[GLCM_CONTRAST_AVE][0] = calc_ave(fvals_contrast);
+	fvals[GLCM_CORRELATION_AVE][0] = calc_ave(fvals_correlation);
+	fvals[GLCM_DIFAVE_AVE][0] = calc_ave(fvals_diff_avg);
+	fvals[GLCM_DIFVAR_AVE][0] = calc_ave(fvals_diff_var);
+	fvals[GLCM_DIFENTRO_AVE][0] = calc_ave(fvals_diff_entropy);
+	fvals[GLCM_DIS_AVE][0] = calc_ave(fvals_dis);
+	fvals[GLCM_ENERGY_AVE][0] = calc_ave(fvals_energy);
+	fvals[GLCM_ENTROPY_AVE][0] = calc_ave(fvals_entropy);
+	fvals[GLCM_HOM1_AVE][0] = calc_ave(fvals_homo);
+	fvals[GLCM_ID_AVE][0] = calc_ave(fvals_id);
+	fvals[GLCM_IDN_AVE][0] = calc_ave(fvals_idn);
+	fvals[GLCM_IDM_AVE][0] = calc_ave(fvals_IDM);
+	fvals[GLCM_IDMN_AVE][0] = calc_ave(fvals_idmn);
+	fvals[GLCM_IV_AVE][0] = calc_ave(fvals_iv);
+	fvals[GLCM_JAVE_AVE][0] = calc_ave(fvals_jave);
+	fvals[GLCM_JE_AVE][0] = calc_ave(fvals_je);
+	fvals[GLCM_INFOMEAS1_AVE][0] = calc_ave(fvals_meas_corr1);
+	fvals[GLCM_INFOMEAS2_AVE][0] = calc_ave(fvals_meas_corr2);
+	fvals[GLCM_VARIANCE_AVE][0] = calc_ave(fvals_variance);
+	fvals[GLCM_JMAX_AVE][0] = calc_ave(fvals_jmax);
+	fvals[GLCM_JVAR_AVE][0] = calc_ave(fvals_jvar);
+	fvals[GLCM_SUMAVERAGE_AVE][0] = calc_ave(fvals_sum_avg);
+	fvals[GLCM_SUMVARIANCE_AVE][0] = calc_ave(fvals_sum_var);
+	fvals[GLCM_SUMENTROPY_AVE][0] = calc_ave(fvals_sum_entropy);
 	fvals[GLCM_VARIANCE_AVE][0] = calc_ave (fvals_variance);
 }
 
