@@ -125,7 +125,7 @@ void Stopwatch::save_stats (const std::string & fpath)
 	f << _quote_ << "h1" << _quote_ << _comma_
 		<< _quote_ << "h2" << _quote_ << _comma_
 		<< _quote_ << "h3" << _quote_ << _comma_
-		<< _quote_ << "share%" << _quote_ << _comma_
+		<< _quote_ << "weight" << _quote_ << _comma_
 		<< _quote_ << "color" << _quote_ << _comma_
 		<< _quote_ << "codes" << _quote_ << _comma_
 		<< _quote_ << "rawtime" << _quote_ << _comma_
@@ -165,6 +165,7 @@ void Stopwatch::save_stats (const std::string & fpath)
 			<< "\n";
 	}
 
+/* 2023-12-16
 	// Combined time
 	// -- experiment info, if any
 	if (! vals.empty())
@@ -176,11 +177,12 @@ void Stopwatch::save_stats (const std::string & fpath)
 		<< _quote_ << "All" << _quote_ << _comma_
 		<< _quote_ << "100" << _quote_ << _comma_
 		<< _quote_ << "#000000" << _quote_ << _comma_ 
-		<< _quote_ << "TOTL" << _quote_ << _comma_ //" " << Nyxus::round2(100) << "%" << _quote_ << _comma_
+		<< _quote_ << "TOTL" << _quote_ << _comma_
 		<< _quote_ << totTime << _quote_ << _comma_
 		<< _quote_ << totTime << _quote_ << _comma_
 		<< _quote_ << Nyxus::theEnvironment.n_reduce_threads << _quote_ 
 		<< "\n";
+*/
 }
 
 namespace Nyxus

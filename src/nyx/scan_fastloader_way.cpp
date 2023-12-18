@@ -95,7 +95,7 @@ namespace Nyxus
 		{
 			//______	STOPWATCH("Image scan/ImgScan/Scan/lightsteelblue", "\t=");
 
-			{ STOPWATCH("Image scan1/ImgScan1/Scan1/lightsteelblue", "\t=");
+			{ STOPWATCH("scan1/ImgScan1/S1/lightsteelblue", "\t=");
 
 				// Report the amount of free RAM
 				unsigned long long freeRamAmt = getAvailPhysMemory();
@@ -111,7 +111,7 @@ namespace Nyxus
 				VERBOSLVL1(std::cout << "[ " << std::setw(digits + 2) << perCent << "% ]\t" << " INT: " << intens_fpath << " SEG: " << label_fpath << "\n";)
 			}
 
-			{ STOPWATCH("Image scan2a/ImgScan2a/Scan2a/lightsteelblue", "\t=");
+			{ STOPWATCH("scan2A/ImgScan2a/S2a/lightsteelblue", "\t=");
 
 				// Phase 1: gather ROI metrics
 				VERBOSLVL1(std::cout << "Gathering ROI metrics\n");
@@ -134,7 +134,7 @@ namespace Nyxus
 				}
 			}
 
-			{ STOPWATCH("Image scan2b/ImgScan2b/Scan2b/lightsteelblue", "\t=");
+			{ STOPWATCH("scan2B/ImgScan2b/S2b/lightsteelblue", "\t=");
 
 				// Allocate each ROI's feature value buffer
 				for (auto lab : uniqueLabels)
@@ -144,10 +144,10 @@ namespace Nyxus
 				}
 
 				// Dump ROI metrics
-				VERBOSLVL2(dump_roi_metrics(label_fpath))	// dumps to file in the output directory
+				VERBOSLVL4(dump_roi_metrics(label_fpath))	// dumps to file in the output directory
 			}
 
-			{ STOPWATCH("Image scan3/ImgScan3/Scan3/lightsteelblue", "\t=");
+			{ STOPWATCH("scan3/ImgScan3/S3/lightsteelblue", "\t=");
 
 				// Support of ROI blacklist
 				fs::path fp(theSegFname);
