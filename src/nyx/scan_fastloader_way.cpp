@@ -286,6 +286,7 @@ namespace Nyxus
 
 		// Iterate file pattern-filtered images of the dataset
 		size_t nf = intensFiles.size();
+		VERBOSLVL1 (std::cout << nf << " intensity-mask slide pairs\n")
 		for (size_t i = 0; i < nf; i++)
 		{
 #ifdef CHECKTIMING
