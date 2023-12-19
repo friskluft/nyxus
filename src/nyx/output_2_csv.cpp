@@ -203,7 +203,7 @@ namespace Nyxus
 
 		// Make the file name and write mode
 		std::string fullPath = get_feature_output_fname(intFpath, segFpath);
-		VERBOSLVL1(std::cout << "\t--> " << fullPath << "\n");
+		VERBOSLVL4(std::cout << "\t--> " << fullPath << "\n")
 
 		// Single CSV: create or continue?
 		const char* mode = "w";

@@ -40,16 +40,21 @@ Stopwatch::Stopwatch (const std::string& header_, const std::string& tail_)
 		totals[header] = 0.0;
 
 	start = std::chrono::system_clock::now();
-	if (header.length() > 0)
-		VERBOSLVL2(std::cout << header << "\n";)
+
+	VERBOSLVL4
+	(
+		if (header.length() > 0)
+			std::cout << header << "\n";
+	);
 }
 
 Stopwatch::~Stopwatch()
 {
 	end = std::chrono::system_clock::now();
 	std::chrono::duration<double, Unit> elap = end - start;
-	VERBOSLVL2(std::cout << tail << " " << elap.count() << " us\n"; )
-		totals[header] = totals[header] + elap.count();
+	totals[header] = totals[header] + elap.count();
+
+	VERBOSLVL4 (std::cout << tail << " " << elap.count() << " us\n");
 }
 
 void Stopwatch::reset() 

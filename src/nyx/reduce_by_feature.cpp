@@ -55,7 +55,7 @@ namespace Nyxus
 
 		//==== Pixel intensity stats. Calculate these basic features unconditionally
 		{
-			STOPWATCH("Intensity/Intensity/Int/#FFFF00", "\t=");
+			STOPWATCH("Intensity/Intensity/I/#FFFF00", "\t=");
 			runParallel(PixelIntensityFeatures::reduce, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
@@ -93,7 +93,7 @@ namespace Nyxus
 		//==== Extrema 
 		if (ExtremaFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Morphology/Extrema/Ex/#4aaaea", "\t=");
+			STOPWATCH("Morphology/Extrema/X/#4aaaea", "\t=");
 			runParallel(ExtremaFeature::reduce, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
@@ -142,14 +142,14 @@ namespace Nyxus
 		//==== Enclosing, inscribing, and circumscribing circle
 		if (EnclosingInscribingCircumscribingCircleFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Morphology/HexPolygEncloInsCircleGeodetLenThickness/HP/#4aaaea", "\t=");
+			STOPWATCH("Morphology/InsCirCircle/Cir/#4aaaea", "\t=");
 			runParallel(EnclosingInscribingCircumscribingCircleFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
 		//==== Geodetic length and thickness
 		if (GeodeticLengthThicknessFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Morphology/HexPolygEncloInsCircleGeodetLenThickness/HP/#4aaaea", "\t=");
+			STOPWATCH("Morphology/GeodetLenThickness/G/#4aaaea", "\t=");
 			runParallel(GeodeticLengthThicknessFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
@@ -163,49 +163,49 @@ namespace Nyxus
 		//==== Erosion pixels
 		if (ErosionPixelsFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Morphology/Erosion/Er/#4aaaea", "\t=");
+			STOPWATCH("Morphology/Erosion/E/#4aaaea", "\t=");
 			runParallel(ErosionPixelsFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
 		//==== Fractal dimension
 		if (FractalDimensionFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Morphology/Fractal dimension/Fd/#4aaaea", "\t=");
+			STOPWATCH("Morphology/Fractal dimension/F/#4aaaea", "\t=");
 			runParallel(FractalDimensionFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
 		//==== GLCM aka Haralick 2D 
 		if (GLCMFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Texture/GLCM/GLCM/#bbbbbb", "\t=");
+			STOPWATCH("Texture/GLCM/tCM/#bbbbbb", "\t=");
 			runParallel(GLCMFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
 		//==== GLRLM
 		if (GLRLMFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Texture/GLRLM/RL/#bbbbbb", "\t=");
+			STOPWATCH("Texture/GLRLM/tRL/#bbbbbb", "\t=");
 			runParallel(GLRLMFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
 		//==== GLSZM
 		if (GLSZMFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Texture/GLSZM/SZ/#bbbbbb", "\t=");
+			STOPWATCH("Texture/GLSZM/tSZ/#bbbbbb", "\t=");
 			runParallel(GLSZMFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
 		//==== GLDM
 		if (GLDMFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Texture/GLDM/D/#bbbbbb", "\t=");
+			STOPWATCH("Texture/GLDM/tDM/#bbbbbb", "\t=");
 			runParallel(GLDMFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
 		//==== NGTDM
 		if (NGTDMFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Texture/NGTDM/NG/#bbbbbb", "\t=");
+			STOPWATCH("Texture/NGTDM/tNG/#bbbbbb", "\t=");
 			runParallel(NGTDMFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
@@ -235,21 +235,21 @@ namespace Nyxus
 		//==== Gabor features
 		if (GaborFeature::required(theFeatureSet))
 		{
-			STOPWATCH("Gabor/Gabor/Gabor/#f58231", "\t=");
+			STOPWATCH("IDistribution/Gabor/Gabor/#ffba66", "\t=");
 			runParallel(GaborFeature::reduce, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
 		//==== Radial distribution / Zernike 2D 
 		if (ZernikeFeature::required(theFeatureSet))
 		{
-			STOPWATCH("RDistribution/Zernike/Rz/#00FFFF", "\t=");
+			STOPWATCH("IDistribution/Zernike/Rz/#ffba66", "\t=");
 			runParallel(ZernikeFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 
 		//==== Radial distribution / FracAtD, MeanFraq, and RadialCV
 		if (RadialDistributionFeature::required(theFeatureSet))
 		{
-			STOPWATCH("RDistribution/Rdist/Rd/#00FFFF", "\t=");
+			STOPWATCH("IDistribution/Rdist/Rd/#ffba66", "\t=");
 			runParallel(RadialDistributionFeature::parallel_process_1_batch, nThr, workPerThread, jobSize, &roiLabelsVector, &roiData);
 		}
 

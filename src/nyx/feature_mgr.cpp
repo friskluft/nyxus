@@ -104,7 +104,7 @@ bool FeatureManager::gather_dependencies()
 			continue;
 		}
 
-		VERBOSLVL2(
+		VERBOSLVL5(
 			// Feature method instance is good
 			std::cout << fm->feature_info << ": " << n_deps << " depends\n";
 
