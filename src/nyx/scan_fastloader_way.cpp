@@ -103,7 +103,7 @@ namespace Nyxus
 				VERBOSLVL4(std::cout << std::setw(15) << freeRamAmt << " bytes free (" << "consumed=" << memDiff << ") ")
 
 					// Display (1) dataset progress info and (2) file pair info
-					int digits = 2, 
+					int digits = 3, 
 					k = std::pow(10.f, digits);
 				float perCent = float(filepair_index * 100 * k / tot_num_filepairs) / float(k);
 				VERBOSLVL1(std::cout << std::setw(digits + 5) << perCent << " %\t" << " INT: " << intens_fpath << " SEG: " << label_fpath << "\n")
