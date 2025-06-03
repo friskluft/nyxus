@@ -173,7 +173,7 @@ mdir = [
 
 nyx.featurize_files (idir, mdir, False) # pass True to featurize intensity files as whole segments
 ```
-## Anosotropy
+## Anisotropy
 
 Anisotropy correction of input data is available via both python API and command-line variants, independent by x, y, and z dimensions. 
 Example (python API):
