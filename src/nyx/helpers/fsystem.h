@@ -34,4 +34,8 @@ namespace Nyxus
 		return t;
 	}
 
+	inline std::string u8string_to_string (const std::u8string &s)
+	{
+		return std::string (s.begin(), s.end());
+	}
 }
