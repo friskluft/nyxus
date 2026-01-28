@@ -19,10 +19,10 @@
 #include "../src/nyx/arrow_output_stream.h"
 #include "../src/nyx/output_writers.h"
 #include "../src/nyx/save_option.h"
-#include "../src/nyx/helpers//fsystem.h"
+#include "../src/nyx/helpers/fsystem.h"
 
 arrow::Result<std::shared_ptr<arrow::Table>> get_arrow_table(const std::string& file_path) {
-    auto file_extension = fs::path(file_path).extension().u8string();
+    std::string file_extension = Nyxus::u8string_to_string (fs::path(file_path).extension().u8string());
 
     if (file_extension == ".parquet") {
         arrow::MemoryPool* pool = arrow::default_memory_pool();
@@ -186,7 +186,7 @@ void test_arrow()
 
     fs::permissions(temp, fs::perms::all);
 
-    std::string outputPath = temp.u8string() + "NyxusFeatures.arrow";
+    std::string outputPath = Nyxus::u8string_to_string(temp.u8string()) + "NyxusFeatures.arrow";
 
     auto arrow_stream = ArrowOutputStream();
 
@@ -257,7 +257,7 @@ void test_parquet() {
 
     fs::permissions(temp, fs::perms::all);
 
-    std::string outputPath = temp.u8string() + "NyxusFeatures.parquet";
+    std::string outputPath = Nyxus::u8string_to_string(temp.u8string()) + "NyxusFeatures.parquet";
 
     auto arrow_stream = ArrowOutputStream();
 

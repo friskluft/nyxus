@@ -10,6 +10,8 @@
 	error "Missing the <filesystem> header."
 #endif
 
+#include <string>
+
 namespace Nyxus
 {
 	// returns big file extension e.g. ".nii.gz"
